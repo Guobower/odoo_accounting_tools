@@ -72,7 +72,6 @@ class wizard_select_template(models.TransientModel):
             return self.load_template()
 
         self.write({'state': 'template_selected'})
-        # view_id = view_rec and view_rec[1] or False
         view_id = view_rec and view_rec.id or False
 
         return {
@@ -99,10 +98,6 @@ class wizard_select_template(models.TransientModel):
         account_invoice_line_obj = self.env['account.invoice.line']
 
         template = template_obj.browse(wizard.template_id.id)
-
-        # to do : test this or change wizard by self
-
-        # wizard = self.search([])[0]
 
         # if not template_obj.check_zero_lines():
         #    raise except_orm(
@@ -150,30 +145,6 @@ class wizard_select_template(models.TransientModel):
             account_invoice_line_obj.create(val)
 
         inv_id.compute_taxes()
-        print "sucesssssssssssssssssssssssssssss "
-
-        #
-        # create tax lines from template
-        #
-        """for tax in wizard.template_id.template_tax_ids:
-            taxe_val = {
-                'invoice_id': inv_id.id,
-                'name': tax.name,
-                'manual': True,
-                'tax_id': tax.id,
-                'taux': tax.amount,
-                #'base': 0.0,
-                #'amount': 0.0,
-            }
-            if wizard.template_id.type_facture in ('out_invoice', 'in_invoice'):
-                taxe_val['tax_code_id'] = tax.tax_code_id.id
-                taxe_val['account_id'] = tax.account_collected_id.id
-            else:
-                tax_val['tax_code_id'] = tax.ref_tax_code_id.id
-                tax_val['account_id'] = tax.account_paid_id.id
-
-            self.env['account.invoice.tax'].create(taxe_val)
-        """
         #
         # load and display created invoice from view
         #
@@ -195,7 +166,6 @@ class wizard_select_template(models.TransientModel):
             'type': 'ir.actions.act_window',
             'target': 'current',
             'flags': {'initial_mode': 'edit'},
-            # 'flags': {'form': {'action_buttons': True, 'options': {'mode': 'edit'}}},
             'res_id': inv_id.id or False,
         }
 
