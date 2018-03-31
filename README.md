@@ -1,1 +1,1 @@
-# odoo_accounting_tools
+Odoo addons
