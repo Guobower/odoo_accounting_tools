@@ -28,7 +28,7 @@
     'description': """
        Update cost from purchase invoice
     """,
-    'author': 'Jalal ZAHID',
+    'author': 'Aurium Technologies',
     'company': 'Aurium Technologies',
     'website': "http://www.auriumtechnologies.com",
     'license': 'AGPL-3',
