@@ -31,6 +31,7 @@
     'author': 'Jalal ZAHID',
     'company': 'Aurium Technologies',
     'website': "http://www.auriumtechnologies.com",
+    'license': 'AGPL-3',
     'category': 'product',
     'depends': ['base', 'account'],
     'images': ['static/description/banner.jpg'],
